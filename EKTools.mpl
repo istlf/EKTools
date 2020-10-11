@@ -16,10 +16,11 @@ export voltDiv;
 
 export currentDiv;
 	currentDiv := proc(Res::algebraic, Resistors::list, iTotal::algebraic, $)
-	description "voltage division";
+	description "current division";
 		return (Res/(add(Resistors)))*iTotal;
 	end proc;
 
+# obv not done... 
 export res;
 	res := proc(vars::list, $)
 	description "provides you with resistance, provided two of these: current, ";
