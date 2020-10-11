@@ -2,10 +2,20 @@
 EKTools := module()
 description "EKTools";
 option package;
+
 export para;
-    para := proc(x::algebraic, y::algebraic, $)
+    para := proc( x::seq(algebraic))
     description "sparallel resistors";
-        return (x*y)/(x+y);
+		
+		# Converts x to a list, and adds them according to the formula
+		# R_p = 1/R_1 + 1/R_2 + 1/R_3 ... 1/R_n
+
+		local a := 0, i;
+		for i in [x] do
+			a := a + 1/i
+		end do;
+
+        return evalf(1/a);
     end proc;
 
 export voltDiv;
